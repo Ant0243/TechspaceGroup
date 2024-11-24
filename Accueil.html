@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSpace Group</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .logo {
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: white;
+        }
+        .menu {
+            position: relative;
+        }
+        .menu button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-top: 50px;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 2rem;
+            font-style: italic;
+            margin-top: -10px;
+            color: #f1c40f;
+        }
+        .subtitle {
+            font-style: italic;
+            margin: 10px 0 30px;
+            font-size: 1.2rem;
+            color: #d3d3d3;
+        }
+        .content img {
+            width: 300px;
+            margin: 20px 0;
+        }
+        .section {
+            margin: 50px 20px;
+            text-align: left;
+        }
+        .section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .section .grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .section .grid .box {
+            width: 300px;
+            height: 200px;
+            border: 2px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .section .grid img {
+            width: 300px;
+            border-radius: 5px;
+        }
+        .chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .auth {
+            position: absolute;
+            top: 10px;
+            right: 90px;
+            font-size: 1rem;
+        }
+        #chat-box {
+          width: 350px;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          background-color: #f9f9f9;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          font-family: 'Arial', sans-serif;
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+        }
+
+        #messages {
+          flex: 1;
+          height: 300px;
+          overflow-y: auto;
+          background-color: #fff;
+          border: 1px solid #eee;
+          border-radius: 8px;
+          padding: 10px;
+          margin-bottom: 10px;
+          font-size: 14px;
+          color: #333;
+        }
+
+        #chat-box {
+          width: 350px;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          background-color: #f9f9f9;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          font-family: 'Arial', sans-serif;
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          color: black;
+        }
+
+        #close-chat {
+          align-self: flex-end;
+          background: none;
+          border: none;
+          font-size: 16px;
+          cursor: pointer;
+          color: #333;
+          margin-bottom: 10px;
+        }
+
+        #messages {
+          flex: 1;
+          height: 300px;
+          overflow-y: auto;
+          background-color: #fff;
+          border: 1px solid #eee;
+          border-radius: 8px;
+          padding: 10px;
+          margin-bottom: 10px;
+          font-size: 14px;
+          color: #333;
+        }
+
+        #chat-form {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        }
+
+        #chat-form input {
+          flex: 1;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          font-size: 14px;
+          color: #333;
+          outline: none;
+        }
+
+        #chat-form button {
+          padding: 10px 15px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          font-size: 14px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        #chat-form button:hover {
+          background-color: #0056b3;
+        }
+
+        #open-chat {
+          width: 50px; /* Taille carrée */
+          height: 50px;
+          background-color: #007bff; /* Couleur de fond */
+          color: #fff; /* Couleur du texte/emoji */
+          border: none; /* Pas de bordure */
+          border-radius: 10px; /* Coins arrondis */
+          font-size: 20px; /* Taille du texte/emoji */
+          cursor: pointer; /* Curseur interactif */
+          transition: background-color 0.3s ease;
+          position: fixed; /* Positionné en bas à droite de l'écran */
+          bottom: 20px;
+          right: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #open-chat:hover {
+          background-color: #0056b3; /* Couleur au survol */
+        }
+
+        nav {
+        background-color: #333;
+        overflow: hidden;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        /* Pour que le menu occupe toute la largeur de l'écran */
+        .menu {
+            text-align: center;
+        }
+
+        .menu a {
+            margin: 0 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu">
+            <!-- Lien vers l'accueil -->
+            <a href="index.html">Accueil</a>
+            <!-- Lien vers Accueil Particulier -->
+            <a href="Accueil.html">Accueil Particulier</a>
+            <!-- Lien vers Accueil Professionnelle -->
+            <a href="Entreprise/AccueilEntreprises.html">Accueil Professionnelle</a>
+        </div>
+    </nav>
+    <header>
+        <a href="#" class="logo">TechSpace Group</a>
+        <div class="auth">
+            <a href="Comptes/register.html" style="color: white; text-decoration: none;">Log In</a>
+        </div>
+    </header>
+    <main>
+        <h1>BIENVENUE SUR TechSpace-group</h1>
+        <h2>La Tech Pour Tous</h2>
+        <p class="subtitle">"Simplifiez le quotidien des pros et des particuliers grâce à nos solutions tech."</p>
+        <div class="content">
+            <img src="Logos/Logo.png" alt="Logo TechSpace Group" style="width: 530px; height: 530px;"><br><br><br><br><br><br><br>
+        </div>
+
+        <!-- Nouvelle Section -->
+        <div class="section">
+            <h3>Notre Expertise au Service des Professionnels</h3>
+            <p>Spécialisés en cybersécurité et en aménagement de bureaux, nous accompagnons les entreprises dans la sécurisation de leurs données et la création d’espaces de travail optimisés.</p>
+            <p>Que vous soyez une PME, une grande entreprise ou un indépendant, notre savoir-faire est dédié exclusivement aux besoins des professionnels.</p>
+            <div class="grid">
+                <div class="box">Si Rendre →</div>
+                <img src="Logos/2024-11-18-21.28.02.png" alt="Cybershield &amp; Prospace Solutions">
+            </div>
+        </div>
+        <div class="section">
+            <h3>Votre Expert en Informatique pour les Particuliers</h3>
+            <p>Découvrez notre gamme de PC conçus pour répondre à vos besoins du quotidien : travail, loisirs ou gaming.</p>
+            <p>Nous proposons des solutions fiables, performantes et adaptées à tous les budgets, avec un accompagnement personnalisé pour vous aider à faire le meilleur choix.</p>
+            <div class="grid">
+                <div class="box">Si Rendre →</div>
+                <img src="Logos/2024-11-18 22.04.20.png" alt="TechSpace - Informatique">
+            </div>
+        </div>
+
+    </main>
+    <button id="open-chat" onclick="openChat()">💬</button>
+
+    <!-- Fenêtre du chat -->
+    <div id="chat-box" style="display: none;">
+        <h4 id="support-h4"><button id="close-chat" onclick="closeChat()">✖</button> <input type="text" id="username-field" placeholder="Nom de la discusssion"></h4>
+        <div id="messages"><div><strong>Test :</strong> Test</div><div><strong>Le :</strong> Ok</div></div>
+        <form id="chat-form">
+            <input type="text" id="user-message" placeholder="Posez votre question..." required="">
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("chat-form").addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const messageContent = document.getElementById("user-message").value;
+          const usernameContent = document.getElementById("username-field").value;
+          const webhookUrl = "https://discord.com/api/webhooks/1308854021070786641/Nkf2AOXW86P4gM0JUHXsVZrhP-idlQuVl2b-sRM1w3BQXk3P_c6zLvPFgTt1P9aTrh4q"; // Remplacez par votre URL de webhook Discord
+
+          const data = {
+            content: messageContent,
+            username: usernameContent,
+          };
+
+          try {
+            await fetch(webhookUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            });
+
+            // Affiche le message sur l'interface
+            document.getElementById("messages").innerHTML += `<div><strong>Vous :</strong> ${messageContent}</div>`;
+            document.getElementById("user-message").value = ""; // Réinitialise le champ de saisie
+          } catch (error) {
+            console.error("Erreur lors de l'envoi du message :", error);
+          }
+        });
+        // Fonction pour ouvrir le chat
+        function openChat() {
+          const chatBox = document.getElementById("chat-box");
+          chatBox.style.display = "block"; // Affiche la boîte de chat
+        }
+
+        // Fonction pour fermer le chat
+        function closeChat() {
+          const chatBox = document.getElementById("chat-box");
+          chatBox.style.display = "none"; // Cache la boîte de chat
+        }
+    </script>
+
+</body></html>

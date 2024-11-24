@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SiteAnto.iml" filepath="$PROJECT_DIR$/SiteAnto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SiteAntoGit.iml" filepath="$PROJECT_DIR$/SiteAntoGit.iml" />
     </modules>
   </component>
 </project>

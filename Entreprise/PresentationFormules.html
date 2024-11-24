@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSpace Group</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background-color: black;
+            color: white;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: black;
+        }
+        .logo {
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: white;
+        }
+        .menu {
+            position: relative;
+        }
+        .menu button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .section {
+            margin: 50px auto;
+            max-width: 900px;
+            text-align: center;
+        }
+        .section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .section img {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .split-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            max-width: 900px;
+            gap: 20px;
+        }
+        .split-section img {
+            width: 300px;
+            border-radius: 5px;
+        }
+        .split-section .content {
+            flex: 1;
+            text-align: left;
+        }
+        .split-section h4 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .split-section p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .split-section a {
+            display: inline-block;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 15px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .split-section a:hover {
+            background-color: white;
+            color: black;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- En-tête -->
+    <header>
+        <a href="#" class="logo">TechSpace Group</a>
+        <div class="menu">
+            <button>Menu</button>
+        </div>
+    </header>
+
+    <!-- Section principale -->
+    <div class="section">
+        <h3>Cybershield Solutions</h3>
+        <p>Voici un résumé général du fonctionnement des formules :</p>
+        <p>Chaque formule de cybersécurité est conçue avec un pack de base de protections adaptées au type de client : entreprise ou particulier...</p>
+        <img src="../Logos/globe.png" alt="Cybershield Solutions">
+    </div>
+
+    <!-- Section MAX -->
+    <div class="split-section">
+        <img src="../Logos/Design_sans_titre-removebg-preview.png" alt="Formule MAX">
+        <div class="content">
+            <h4>01. La formule MAX</h4>
+            <p>La solution de cybersécurité la plus complète, conçue pour les grandes entreprises (200 à 1 000 employés)...</p>
+            <a href="#">Aller à la formule détaillée &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Section Moyenne -->
+    <div class="split-section">
+        <div class="content">
+            <h4>02. La formule Moyenne</h4>
+            <p>Idéale pour les entreprises de taille moyenne (50 à 200 employés), cette formule propose une protection équilibrée...</p>
+            <a href="#">Aller à la formule détaillée &rarr;</a>
+        </div>
+        <img src="../Logos/Formule%20Moyenne.png" alt="Formule Moyenne">
+    </div>
+
+    <!-- Section Petite -->
+    <div class="split-section">
+        <img src="../Logos/Formule%20Petite.png" alt="Formule Petite">
+        <div class="content">
+            <h4>03. La formule Petite</h4>
+            <p>Spécialement conçue pour les microentreprises (1 à 50 employés), elle offre les bases de la cybersécurité...</p>
+            <a href="#">Aller à la formule détaillée &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        &copy; 2024 TechSpace Group - Tous droits réservés.
+    </footer>
+
+</body>
+</html>
+

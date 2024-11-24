@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon pour les navigateurs -->
+    <link rel="icon" href="ressources/logo/logo128.png" type="image/x-icon">
+
+    <!-- Autres formats d'icônes (facultatif) -->
+    <link rel="icon" href="ressources/logo/logo64.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="ressources/logo/logo32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="ressources/logo/logo16.png" type="image/png" sizes="16x16">
+
+    <!-- Icône pour iOS et Android (facultatif) -->
+    <link rel="apple-touch-icon" href="ressources/logo/logo128.png">
+    <title>Loader avec Points</title>
+    <style>
+        /* Style pour le corps */
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          height: 100vh;
+          margin: 0;
+          background-color: #f0f0f0;
+          font-family: Arial, sans-serif;
+        }
+
+        /* Style pour le texte */
+        .loading-text {
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+
+        /* Style pour les points */
+        .dots {
+          display: flex;
+          justify-content: center;
+        }
+
+        .dot {
+          width: 10px;
+          height: 10px;
+          margin: 0 5px;
+          background-color: #3498db;
+          border-radius: 50%;
+          opacity: 0;
+          animation: dotAnimation 1.5s infinite;
+        }
+
+        /* Animation des points */
+        @keyframes dotAnimation {
+          0%, 100% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 1;
+          }
+        }
+
+        /* Animation différente pour chaque point */
+        .dot:nth-child(1) {
+          animation-delay: 0s;
+        }
+
+        .dot:nth-child(2) {
+          animation-delay: 0.3s;
+        }
+
+        .dot:nth-child(3) {
+          animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+
+<div class="loading-text">Chargement en cours</div>
+<div class="dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+</div>
+
+<script>
+    // Fonction pour rediriger après 3 secondes
+    setTimeout(function() {
+      window.location.href = "Accueil.html";
+    }, 3000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer un compte</title>
+    <style>
+        /* Style global */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: black;
+          color: #F1C40F;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+
+        /* Conteneur principal */
+        #account-system {
+          background-color: #fff;
+          padding: 20px 30px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          width: 300px;
+          text-align: center;
+        }
+
+        /* Titre */
+        #account-system h2 {
+          margin-bottom: 20px;
+          color: #F1C40F;
+        }
+
+        /* Champs de formulaire */
+        #register-form input {
+          width: 92%;
+          padding: 10px;
+          margin: 10px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+        }
+
+        /* Bouton d'inscription */
+        #register-form button {
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          padding: 10px 15px;
+          font-size: 16px;
+          border-radius: 5px;
+          cursor: pointer;
+          width: 100%;
+          transition: background-color 0.3s ease;
+        }
+
+        #register-form button:hover {
+          background-color: #0056b3;
+        }
+
+        /* Ajout d'un effet au focus sur les champs */
+        #register-form input:focus {
+          border-color: #007bff;
+          outline: none;
+          box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            z-index: 1000;
+        }
+
+        .menu ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu ul li {
+            margin: 0 20px;
+        }
+
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .menu ul li a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="menu">
+    <ul>
+        <li><a href="../Accueil.html">Accueil</a></li>
+        <li><a href="../Accueil.html">Accueil Personnel</a></li>
+        <li><a href="../Entreprise/AccueilEntreprises.html">Services</a></li>
+    </ul>
+</div>
+<main>
+    <div id="account-system">
+        <h2>Créer un compte</h2>
+        <form id="register-form">
+            <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+            <input type="email" id="email" placeholder="Adresse e-mail" required>
+            <input type="password" id="password" placeholder="Mot de passe" required>
+            <button type="button" id="register-button">S'inscrire</button>
+        </form>
+    </div>
+</main>
+
+<script>
+    document.getElementById('register-button').addEventListener('click', function(e) {
+        e.preventDefault(); // Empêche le rechargement de la page
+
+        const userData = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value
+        };
+
+        fetch('http://localhost:3000/save-user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Utilisateur enregistré : ' + data.message);
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
+    });
+</script>
+
+</body>
+</html>
