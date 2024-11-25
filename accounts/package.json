@@ -1,9 +1,9 @@
 {
-  "name": "projet-node",
+  "name": "comptes-techspace",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -11,7 +11,10 @@
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
-    "express": "^4.21.1"
+    "crypto": "^1.0.1",
+    "express": "^4.21.1",
+    "nodemailer": "^6.9.16",
+    "util": "^0.12.5"
   },
   "description": ""
 }
